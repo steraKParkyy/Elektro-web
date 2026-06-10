@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profesionálne elektroinštalácie, revízie a opravy. Rýchly servis, férové ceny.">
+    <title>ElektroServis | Profesionálne Elektroinštalácie</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="js.js" defer></script>
+</head>
+<body>
+
+    <!-- ===== DESKTOP NAV ===== -->
+    <nav class="desktop-nav" id="desktopNav">
+        <div class="nav-logo">⚡ MM-Elektro</div>
+        <ul class="nav-links">
+            <li><a href="#domov" class="nav-link active">Domov</a></li>
+            <li><a href="#sluzby" class="nav-link">Služby</a></li>
+            <li><a href="#galeria" class="nav-link">Galéria</a></li>
+            <li><a href="#o-nas" class="nav-link">O nás</a></li>
+            <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== MOBILE SIDE NAV ===== -->
+    <nav class="side-nav" id="sideNav">
+        <a href="#domov" class="side-link active" data-section="domov" data-label="D" title="Domov">D</a>
+        <a href="#sluzby" class="side-link" data-section="sluzby" data-label="S" title="Služby">S</a>
+        <a href="#galeria" class="side-link" data-section="galeria" data-label="G" title="Galéria">G</a>
+        <a href="#o-nas" class="side-link" data-section="o-nas" data-label="O" title="O nás">O</a>
+        <a href="#kontakt" class="side-link" data-section="kontakt" data-label="K" title="Kontakt">K</a>
+    </nav>
+
+    <!-- ===== DOMOV ===== -->
+    <section id="domov" class="section hero-section">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">⚡ Profesionálne elektroinštalácie</div>
+            <h1 class="hero-title">Elektrina,<br><span class="accent">na ktorú sa<br>môžete spoľahnúť</span></h1>
+            <p class="hero-sub">Rodinné domy · Byty · Firmy · Revízie · Hromozvody</p>
+            <div class="hero-btns">
+                <a href="#kontakt" class="btn btn-primary">Nezáväzná konzultácia</a>
+                <a href="#sluzby" class="btn btn-outline">Naše služby</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Rokov skúseností</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Dokončených projektov</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Spokojných klientov</span></div>
+            </div>
+        </div>
+        <!-- <div class="hero-scroll">
+            <span>Skrolovať nadol</span>
+            <div class="scroll-line"></div>
+        </div> -->
+    </section>
+
+    <!-- ===== SLUZBY ===== -->
+    <section id="sluzby" class="section sluzby-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Čo ponúkame</span>
+                <h2 class="section-title">Naše <span class="accent">Služby</span></h2>
+                <p class="section-sub">Komplexné riešenia elektroinštalácií pre domácnosti aj firmy</p>
+            </div>
+            <div class="sluzby-grid">
+                <div class="sluzba-card">
+                    <div class="sluzba-icon">🏠</div>
+                    <h3>Rodinné domy</h3>
+                    <p>Kompletné elektroinštalácie novostavieb aj rekonštrukcie starých rozvodov. Od projektu až po revíziu.</p>
+                </div>
+                <div class="sluzba-card">
+                    <div class="sluzba-icon">🔧</div>
+                    <h3>Opravy a servis</h3>
+                    <p>Rýchly výjazd pri poruchách, výmena ističov, zásuviek, vypínačov. Pohotovostný servis.</p>
+                    <!-- <span class="card-badge">Najčastejšie</span> -->
+                </div>
+                <div class="sluzba-card">
+                    <div class="sluzba-icon">📋</div>
+                    <h3>Revízie</h3>
+                    <p>Odborné revízie elektroinštalácií s vydaním správy. Povinné revízie pre firmy aj domácnosti.</p>
+                </div>
+                <div class="sluzba-card">
+                    <div class="sluzba-icon">⛈️</div>
+                    <h3>Hromozvody</h3>
+                    <p>Inštalácia a revízie bleskozvodov. Ochrana vašej nehnuteľnosti pred atmosférickými výbojmi.</p>
+                </div>
+                <div class="sluzba-card">
+                    <div class="sluzba-icon">🏢</div>
+                    <h3>Firmy</h3>
+                    <p> Rozvody, rozvádzače, osvetlenie prevádzok a skladov.</p>
+                </div>
+                <div class="sluzba-card">
+                    <div class="sluzba-icon">🔌</div>
+                    <h3>Nabíjacie stanice</h3>
+                    <p>Inštalácia wallboxov pre elektromobily. Riešenia pre domácnosti aj firemné parkoviská.</p>
+                </div>
+                 <div class="sluzba-card sluzba-card--wide">
+                    <div class="sluzba-icon">📞</div>
+                    <div class="sluzba-wide-content">
+                        <div>
+                            <h3>Fotovoltické elektrárne</h3>
+                            <p>FTV panely, batériové úložiská. Budujeme udržateľnú budúcnosť s prémiovou energiou a overenou kvalitou.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALERIA ===== -->
+    <section id="galeria" class="section galeria-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Naša práca</span>
+                <h2 class="section-title">Galéria <span class="accent">Realizácií</span></h2>
+                <p class="section-sub">Ukážky dokončených projektov</p>
+            </div>
+            <div class="galeria-grid">
+                <div class="galeria-item large">
+                    <img src="images/rozvadzac.jpg" alt="Elektroinštalácia rodinného domu" class="galeria-img" data-index="0">
+                    <span class="galeria-tag">Rodinný dom</span>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/rozvadzac.jpg" alt="Elektrický rozvádzač" class="galeria-img" data-index="1">
+                    <span class="galeria-tag">Rozvádzač</span>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/rozvadzac.jpg" alt="Elektroinštalácia bytu" class="galeria-img" data-index="2">
+                    <span class="galeria-tag">Byt</span>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/rozvadzac.jpg" alt="Revízia elektroinštalácie" class="galeria-img" data-index="3">
+                    <span class="galeria-tag">Revízia</span>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/rozvadzac.jpg" alt="Inštalácia hromozvodu" class="galeria-img" data-index="4">
+                    <span class="galeria-tag">Hromozvod</span>
+                </div>
+            </div>
+            <!-- <p class="galeria-note">💡 Sem vložíš vlastné fotografie hotových prác</p> -->
+        </div>
+    </section>
+
+    <!-- ===== O NAS ===== -->
+    <section id="o-nas" class="section onas-section">
+        <div class="container onas-container">
+            <div class="onas-visual">
+                <div class="onas-img-placeholder">
+                    <!-- <span>📷</span> -->
+                    <!-- <span>Vaša fotografia</span> -->
+                     <img src="images/eteamm.jpg" alt="Náš tím" class="onas-img">
+                </div>
+                <div class="onas-badge-float">
+                    <span class="badge-num">5+</span>
+                    <span class="badge-text">Rokov<br>praxe</span>
+                </div>
+            </div>
+            <div class="onas-content">
+                <span class="section-tag">Kto sme</span>
+                <h2 class="section-title">O <span class="accent">nás</span></h2>
+                <p class="onas-text">
+                    Sme tím skúsených elektrikárov s viac ako 5-ročnou praxou v oblasti elektroinštalácií, nie je to len naša práca, ale aj naše hobby.
+                    Poskytujeme komplexné služby pre domácnosti, firmy, sklady v celom regióne.
+                </p>
+                <p class="onas-text">
+                    Každý projekt realizujeme s maximálnou starostlivosťou, dodržiavaním platných noriem
+                    a s dôrazom na bezpečnosť a spokojnosť klienta.
+                </p>
+                <div class="onas-hodnoty">
+                    <div class="hodnota">
+                        <span class="hodnota-icon">✅</span>
+                        <div>
+                            <strong>Certifikovaní odborníci</strong>
+                            <p>Všetky práce vykonávame v súlade s normami</p>
+                        </div>
+                    </div>
+                    <div class="hodnota">
+                        <span class="hodnota-icon">⚡</span>
+                        <div>
+                            <strong>Rýchly výjazd</strong>
+                            <p>Pohotovostný servis aj cez víkend</p>
+                        </div>
+                    </div>
+                    <div class="hodnota">
+                        <span class="hodnota-icon">💰</span>
+                        <div>
+                            <strong>Férové ceny</strong>
+                            <p>Transparentná cenová ponuka vopred</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KONTAKT ===== -->
+    <section id="kontakt" class="section kontakt-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Napíšte nám</span>
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-sub">Pošlite nám vašu požiadavku a ozveme sa do 24 hodín</p>
+            </div>
+            <div class="kontakt-grid">
+                <div class="kontakt-info">
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <strong>Telefón</strong>
+                            <a href="tel:+421948451857">+421 948 451 857</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:info@mm-elektro.sk">info@mm-elektro.sk</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <strong>Lokalita</strong>
+                            <span>Čadca a okolie</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🕐</span>
+                        <div>
+                            <strong>Pracovná doba</strong>
+                            <span>Po–Pi: 7:00 – 17:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="kontakt-form" id="kontaktForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="meno">Meno a priezvisko *</label>
+                            <input type="text" id="meno" name="meno" placeholder="Ján Novák" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefon">Telefón *</label>
+                            <input type="tel" id="telefon" name="telefon" placeholder="+421 900 000 000" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="jan@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="typ">Typ práce *</label>
+                        <select id="typ" name="typ" required>
+                            <option value="" disabled selected>Vyberte typ práce</option>
+                            <option value="instalacia">Nová elektroinštalácia</option>
+                            <option value="rekonstrukcia">Rekonštrukcia rozvodov</option>
+                            <option value="revizia">Revízia</option>
+                            <option value="oprava">Oprava / Porucha</option>
+                            <option value="hromozvod">Hromozvod</option>
+                            <option value="ine">Iné</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sprava">Popis požiadavky *</label>
+                        <textarea id="sprava" name="sprava" rows="4" placeholder="Popíšte čo potrebujete..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Odoslať požiadavku</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <div class="form-success" id="formSuccess">
+                        ✅ Ďakujeme! Ozveme sa vám čo najskôr.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>© 2025 MM-Elektro. Všetky práva vyhradené.</span>
+            <span>Vyrobené s ⚡ na Slovensku</span>
+        </div>
+    </footer>
+
+     <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-next" id="lightboxNext">›</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
+    </div>
+</body>
+</html>
