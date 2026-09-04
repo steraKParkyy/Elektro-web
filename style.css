@@ -907,7 +907,7 @@ img { max-width: 100%; display: block; }
     .section { padding: 5rem 0; }
     .section { padding-left: calc(var(--side-w) + 1rem); }
 
-    .hero-content { padding: 5rem 1.5rem 3rem calc(var(--side-w) + 1.5rem); }
+    /* .hero-content { padding: 5rem 1.5rem 3rem calc(var(--side-w) + 1.5rem); } */
 
     .hero-title { font-size: clamp(3rem, 12vw, 5rem); }
     .hero-btns { flex-direction: column; }
