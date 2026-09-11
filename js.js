@@ -6,6 +6,7 @@ const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 const sideLinks = document.querySelectorAll('.side-link');
 const desktopNav = document.getElementById('desktopNav');
+const sideNav = document.getElementById('sideNav');
 
 function updateActiveNav() {
     const scrollY = window.scrollY;
@@ -36,6 +37,25 @@ window.addEventListener('scroll', () => {
 });
 
 updateActiveNav();
+
+// Mobilná navigácia: prvé ťuknutie rozbalí názvy, druhé otvorí sekciu.
+sideLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+        if (!sideNav.classList.contains('expanded')) {
+            e.preventDefault();
+            sideNav.classList.add('expanded');
+            return;
+        }
+
+        sideNav.classList.remove('expanded');
+    });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') sideNav.classList.remove('expanded');
+});
 
 
 // ===========================
