@@ -687,7 +687,11 @@ img { max-width: 100%; display: block; }
    O NAS
 =========================== */
 .onas-section {
-    background: var(--dark2);
+    background-color: var(--dark2);
+    background-image:
+        linear-gradient(rgba(245,196,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,196,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
 }
 
 .onas-container {
@@ -782,6 +786,60 @@ img { max-width: 100%; display: block; }
     font-size: 0.85rem;
     color: var(--gray-light);
     margin: 0;
+}
+
+/* ===========================
+   E-SHOP
+=========================== */
+.eshop-section {
+    background-color: var(--dark2);
+    background-image:
+        linear-gradient(rgba(245,196,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,196,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.eshop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.eshop-card {
+    min-height: 210px;
+    padding: 1.5rem;
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.eshop-card:hover {
+    border-color: rgba(245,196,0,0.45);
+    transform: translateY(-4px);
+}
+
+.eshop-icon {
+    display: block;
+    margin-bottom: 1.25rem;
+    font-size: 1.8rem;
+}
+
+.eshop-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.eshop-card p {
+    color: var(--gray-light);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.eshop-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 /* ===========================
@@ -921,6 +979,7 @@ img { max-width: 100%; display: block; }
 =========================== */
 @media (max-width: 900px) {
     .sluzby-grid { grid-template-columns: repeat(2, 1fr); }
+    .eshop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .onas-container { grid-template-columns: 1fr; gap: 3rem; }
     .onas-visual { max-width: 400px; margin: 0 auto; }
     .kontakt-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -941,6 +1000,7 @@ img { max-width: 100%; display: block; }
     .btn { width: 100%; justify-content: center; }
 
     .sluzby-grid { grid-template-columns: 1fr; }
+    .eshop-grid { grid-template-columns: 1fr; }
 
     .galeria-grid {
         grid-template-columns: 1fr 1fr;

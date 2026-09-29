@@ -183,7 +183,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.sluzba-card, .galeria-item, .hodnota, .info-item').forEach(el => {
+document.querySelectorAll('.sluzba-card, .eshop-card, .galeria-item, .hodnota, .info-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
