@@ -1022,6 +1022,14 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 480px) {
+    .hero-section { padding-left: calc(var(--side-w) + 0.25rem); }
+    .hero-content {
+        width: 100%;
+        min-width: 0;
+        padding: 4rem 0.75rem;
+    }
+    .hero-title { font-size: clamp(1.75rem, 9.5vw, 2.75rem); }
+
     .hero-stats { gap: 1rem; }
     .stat-divider { display: none; }
     .galeria-grid { grid-template-columns: 1fr; }
