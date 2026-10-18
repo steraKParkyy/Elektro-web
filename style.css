@@ -6,6 +6,7 @@
     --yellow: #F5C400;
     --yellow-dark: #D4A800;
     --grid-line: rgba(245,196,0,0.07);
+    --grid-edge-fade: linear-gradient(to bottom, #000 0%, transparent 18%, transparent 82%, #000 100%);
     --dark: #0D0D0D;
     --dark2: #000000;
     --dark3: #1E1E1E;
@@ -323,6 +324,8 @@ img { max-width: 100%; display: block; }
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 60px 60px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
 }
 
 .hero-bg::after {
@@ -689,9 +692,11 @@ img { max-width: 100%; display: block; }
 =========================== */
 .onas-section {
     background-image:
+        var(--grid-edge-fade),
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+    background-repeat: no-repeat, repeat, repeat;
 }
 
 .onas-container {
@@ -793,9 +798,11 @@ img { max-width: 100%; display: block; }
 =========================== */
 .eshop-section {
     background-image:
+        var(--grid-edge-fade),
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+    background-repeat: no-repeat, repeat, repeat;
 }
 
 .eshop-grid {
