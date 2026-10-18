@@ -376,7 +376,7 @@ img { max-width: 100%; display: block; }
 
 .hero-sub {
     color: var(--gray-light);
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     margin-bottom: 2.5rem;
     letter-spacing: 0.05em;
 }
