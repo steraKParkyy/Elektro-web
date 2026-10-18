@@ -5,7 +5,7 @@
     --blue: #2087c2;
     --yellow: #F5C400;
     --yellow-dark: #D4A800;
-    --grid-line: rgba(245,196,0,0.07);
+    --grid-line: rgba(245,196,0,0.10);
     --grid-edge-fade: linear-gradient(to bottom, #000 0%, transparent 18%, transparent 82%, #000 100%);
     --dark: #0D0D0D;
     --dark2: #000000;
@@ -100,13 +100,29 @@ img { max-width: 100%; display: block; }
 /* ===========================
    DESKTOP NAV
 =========================== */
+.desktop-nav,
+.side-nav,
+.kontakt-form,
+.hero-section .btn-outline,
+.sluzba-card,
+.eshop-card {
+    background: rgba(22,22,22,0.36);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.sluzba-card,
+.eshop-card {
+    background: rgba(22,22,22,0.16);
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+
 .desktop-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: var(--nav-h);
-    background: rgba(13, 13, 13, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
@@ -117,7 +133,7 @@ img { max-width: 100%; display: block; }
 }
 
 .desktop-nav.scrolled {
-    background: rgba(13, 13, 13, 0.97);
+    background: rgba(22,22,22,0.5);
 }
 
 .nav-logo {
@@ -185,8 +201,6 @@ img { max-width: 100%; display: block; }
     align-items: stretch;
     gap: 0.5rem;
     z-index: 1000;
-    background: rgba(13,13,13,0.7);
-    backdrop-filter: blur(10px);
     border-right: 1px solid rgba(255,255,255,0.06);
     padding: 0.75rem 0;
     border-radius: 0 8px 8px 0;
@@ -452,8 +466,7 @@ img { max-width: 100%; display: block; }
 }
 
 .sluzba-card {
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.11);
     border-radius: var(--radius);
     padding: 2rem;
     position: relative;
@@ -468,7 +481,7 @@ img { max-width: 100%; display: block; }
 
 .sluzba-card.featured {
     border-color: rgba(245,196,0,0.2);
-    background: linear-gradient(135deg, var(--dark3), rgba(245,196,0,0.04));
+    background: linear-gradient(135deg, rgba(22,22,22,0.16), rgba(245,196,0,0.04));
 }
 
 .sluzba-icon {
@@ -814,8 +827,7 @@ img { max-width: 100%; display: block; }
 .eshop-card {
     min-height: 210px;
     padding: 1.5rem;
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.11);
     border-radius: 8px;
     transition: border-color var(--transition), transform var(--transition);
 }
@@ -882,8 +894,7 @@ img { max-width: 100%; display: block; }
 
 /* Form */
 .kontakt-form {
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.11);
     border-radius: var(--radius);
     padding: 2.5rem;
     display: flex;
