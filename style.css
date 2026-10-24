@@ -5,8 +5,10 @@
     --blue: #2087c2;
     --yellow: #F5C400;
     --yellow-dark: #D4A800;
+    --grid-line: rgba(245,196,0,0.10);
+    --grid-edge-fade: linear-gradient(to bottom, #000 0%, transparent 18%, transparent 82%, #000 100%);
     --dark: #0D0D0D;
-    --dark2: #161616;
+    --dark2: #000000;
     --dark3: #1E1E1E;
     --dark4: #2A2A2A;
     --gray: #6B6B6B;
@@ -55,6 +57,7 @@ img { max-width: 100%; display: block; }
 .section {
     min-height: 100vh;
     padding: 6rem 0;
+    background-color: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,13 +100,29 @@ img { max-width: 100%; display: block; }
 /* ===========================
    DESKTOP NAV
 =========================== */
+.desktop-nav,
+.side-nav,
+.kontakt-form,
+.hero-section .btn-outline,
+.sluzba-card,
+.eshop-card {
+    background: rgba(22,22,22,0.36);
+    backdrop-filter: blur(2px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.sluzba-card,
+.eshop-card {
+    background: rgba(22,22,22,0.16);
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+
 .desktop-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: var(--nav-h);
-    background: rgba(13, 13, 13, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
@@ -114,7 +133,7 @@ img { max-width: 100%; display: block; }
 }
 
 .desktop-nav.scrolled {
-    background: rgba(13, 13, 13, 0.97);
+    background: rgba(22,22,22,0.5);
 }
 
 .nav-logo {
@@ -182,8 +201,6 @@ img { max-width: 100%; display: block; }
     align-items: stretch;
     gap: 0.5rem;
     z-index: 1000;
-    background: rgba(13,13,13,0.7);
-    backdrop-filter: blur(10px);
     border-right: 1px solid rgba(255,255,255,0.06);
     padding: 0.75rem 0;
     border-radius: 0 8px 8px 0;
@@ -305,15 +322,24 @@ img { max-width: 100%; display: block; }
     position: absolute;
     inset: 0;
     z-index: 0;
+    background-image:
+        linear-gradient(rgba(13,13,13,0.25), rgba(13,13,13,0.25)),
+        linear-gradient(90deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.72) 42%, rgba(13,13,13,0.12) 100%),
+        url("images/elektrina.png");
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%, 100% 100%, 100% auto;
 }
 
 .hero-grid {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(245,196,0,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,196,0,0.04) 1px, transparent 1px);
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 60px 60px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
 }
 
 .hero-bg::after {
@@ -364,7 +390,7 @@ img { max-width: 100%; display: block; }
 
 .hero-sub {
     color: var(--gray-light);
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     margin-bottom: 2.5rem;
     letter-spacing: 0.05em;
 }
@@ -433,10 +459,6 @@ img { max-width: 100%; display: block; }
 /* ===========================
    SLUZBY
 =========================== */
-.sluzby-section {
-    background: var(--dark2);
-}
-
 .sluzby-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -444,8 +466,7 @@ img { max-width: 100%; display: block; }
 }
 
 .sluzba-card {
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.11);
     border-radius: var(--radius);
     padding: 2rem;
     position: relative;
@@ -460,7 +481,7 @@ img { max-width: 100%; display: block; }
 
 .sluzba-card.featured {
     border-color: rgba(245,196,0,0.2);
-    background: linear-gradient(135deg, var(--dark3), rgba(245,196,0,0.04));
+    background: linear-gradient(135deg, rgba(22,22,22,0.16), rgba(245,196,0,0.04));
 }
 
 .sluzba-icon {
@@ -518,10 +539,6 @@ img { max-width: 100%; display: block; }
 /* ===========================
    GALERIA
 =========================== */
-.galeria-section {
-    background: var(--dark);
-}
-
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -531,6 +548,7 @@ img { max-width: 100%; display: block; }
 
 .galeria-item { border-radius: var(--radius); overflow: hidden; }
 .galeria-item.large { grid-column: span 2; grid-row: span 2; }
+.galeria-item:nth-child(n+6) { display: none; }
 
 .galeria-item {
     position: relative;
@@ -687,7 +705,12 @@ img { max-width: 100%; display: block; }
    O NAS
 =========================== */
 .onas-section {
-    background: var(--dark2);
+    background-image:
+        var(--grid-edge-fade),
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+    background-repeat: no-repeat, repeat, repeat;
 }
 
 .onas-container {
@@ -785,12 +808,65 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===========================
-   KONTAKT
+   E-SHOP
 =========================== */
-.kontakt-section {
-    background: var(--dark);
+.eshop-section {
+    background-image:
+        var(--grid-edge-fade),
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+    background-repeat: no-repeat, repeat, repeat;
 }
 
+.eshop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.eshop-card {
+    min-height: 210px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 8px;
+    transition: border-color var(--transition), transform var(--transition);
+    backdrop-filter: blur(2px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.eshop-card:hover {
+    border-color: rgba(245,196,0,0.45);
+    transform: translateY(-4px);
+}
+
+.eshop-icon {
+    display: block;
+    margin-bottom: 1.25rem;
+    font-size: 1.8rem;
+}
+
+.eshop-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.eshop-card p {
+    color: var(--gray-light);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.eshop-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* ===========================
+   KONTAKT
+=========================== */
 .kontakt-grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -822,8 +898,7 @@ img { max-width: 100%; display: block; }
 
 /* Form */
 .kontakt-form {
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.11);
     border-radius: var(--radius);
     padding: 2.5rem;
     display: flex;
@@ -921,6 +996,7 @@ img { max-width: 100%; display: block; }
 =========================== */
 @media (max-width: 900px) {
     .sluzby-grid { grid-template-columns: repeat(2, 1fr); }
+    .eshop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .onas-container { grid-template-columns: 1fr; gap: 3rem; }
     .onas-visual { max-width: 400px; margin: 0 auto; }
     .kontakt-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -941,6 +1017,7 @@ img { max-width: 100%; display: block; }
     .btn { width: 100%; justify-content: center; }
 
     .sluzby-grid { grid-template-columns: 1fr; }
+    .eshop-grid { grid-template-columns: 1fr; }
 
     .galeria-grid {
         grid-template-columns: 1fr 1fr;
@@ -960,6 +1037,14 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 480px) {
+    .hero-section { padding-left: calc(var(--side-w) + 0.25rem); }
+    .hero-content {
+        width: 100%;
+        min-width: 0;
+        padding: 4rem 0.75rem;
+    }
+    .hero-title { font-size: clamp(1.75rem, 9.5vw, 2.75rem); }
+
     .hero-stats { gap: 1rem; }
     .stat-divider { display: none; }
     .galeria-grid { grid-template-columns: 1fr; }
