@@ -64,6 +64,13 @@ document.addEventListener('keydown', (e) => {
 
 const form = document.getElementById('kontaktForm');
 const formSuccess = document.getElementById('formSuccess');
+const workTypeSelect = document.getElementById('typ');
+
+document.querySelectorAll('.sluzba-card[data-work-type]').forEach(card => {
+    card.addEventListener('click', () => {
+        workTypeSelect.value = card.dataset.workType;
+    });
+});
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
