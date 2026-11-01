@@ -334,12 +334,26 @@ img { max-width: 100%; display: block; }
 .hero-grid {
     position: absolute;
     inset: 0;
+    animation: gridPulse 6s ease-in-out infinite;
     background-image:
         linear-gradient(var(--grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 60px 60px;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
     mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-grid,
+    .onas-section::before,
+    .eshop-section::before {
+        animation: none;
+    }
 }
 
 .hero-bg::after {
@@ -706,6 +720,16 @@ img { max-width: 100%; display: block; }
    O NAS
 =========================== */
 .onas-section {
+    position: relative;
+    isolation: isolate;
+}
+
+.onas-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    animation: gridPulse 6s ease-in-out infinite;
     background-image:
         var(--grid-edge-fade),
         linear-gradient(var(--grid-line) 1px, transparent 1px),
@@ -812,6 +836,16 @@ img { max-width: 100%; display: block; }
    E-SHOP
 =========================== */
 .eshop-section {
+    position: relative;
+    isolation: isolate;
+}
+
+.eshop-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    animation: gridPulse 6s ease-in-out infinite;
     background-image:
         var(--grid-edge-fade),
         linear-gradient(var(--grid-line) 1px, transparent 1px),
