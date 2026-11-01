@@ -2,6 +2,10 @@
    CSS VARIABLES
 =========================== */
 :root {
+    
+    --yellow-border: #f5c4004d;
+
+
     --blue: #2087c2;
     --yellow: #F5C400;
     --yellow-dark: #D4A800;
@@ -514,7 +518,7 @@ img { max-width: 100%; display: block; }
 
 .sluzba-card {
     display: block;
-    border: 1px solid rgba(255,255,255,0.11);
+    border: 1px solid var(--yellow-border);
     border-radius: var(--radius);
     padding: 2rem;
     position: relative;
@@ -522,7 +526,7 @@ img { max-width: 100%; display: block; }
 }
 
 .sluzba-card:hover {
-    border-color: rgba(245,196,0,0.3);
+    border-color: rgba(245,196,0,0.45);
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.3);
 }
@@ -903,7 +907,7 @@ img { max-width: 100%; display: block; }
 .eshop-card {
     min-height: 210px;
     padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.11);
+    border: 1px solid var(--yellow-border);
     border-radius: 8px;
     transition: border-color var(--transition), transform var(--transition);
     backdrop-filter: blur(2px) saturate(140%);
