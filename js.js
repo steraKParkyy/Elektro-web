@@ -196,3 +196,94 @@ document.querySelectorAll('.sluzba-card, .eshop-card, .galeria-item, .hodnota, .
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
 });
+
+
+// ===========================
+// ENERGIA V GRID POZADI
+// ===========================
+
+const gridSpacing = 60;
+const energyCount = 5;
+const energySections = document.querySelectorAll('.hero-grid, .onas-section, .eshop-section');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const svgNamespace = 'http://www.w3.org/2000/svg';
+
+function createEnergyPath(width, height) {
+    const lastColumn = Math.floor(width / gridSpacing);
+    let column = Math.floor(Math.random() * (lastColumn + 1));
+    const pathPoints = [`M ${column * gridSpacing} 0`];
+
+    for (let y = 0; y < height;) {
+        const nextY = Math.min(y + gridSpacing, height);
+        const directions = [];
+
+        if (column > 0) directions.push(-1);
+        if (column < lastColumn) directions.push(1);
+
+        if (directions.length && Math.random() < 0.24) {
+            column += directions[Math.floor(Math.random() * directions.length)];
+            pathPoints.push(`L ${column * gridSpacing} ${y}`);
+        }
+
+        pathPoints.push(`L ${column * gridSpacing} ${nextY}`);
+        y = nextY;
+    }
+
+    return pathPoints.join(' ');
+}
+
+function addGridEnergy(layer) {
+    const overlay = document.createElementNS(svgNamespace, 'svg');
+    overlay.classList.add('grid-energy-overlay');
+    overlay.setAttribute('aria-hidden', 'true');
+    layer.append(overlay);
+
+    const activePaths = [];
+
+    function renderEnergies() {
+        activePaths.forEach(({ timer }) => clearTimeout(timer));
+        activePaths.length = 0;
+        overlay.replaceChildren();
+
+        const width = Math.max(layer.clientWidth, 1);
+        const height = Math.max(layer.clientHeight, 1);
+        overlay.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+        for (let index = 0; index < energyCount; index += 1) {
+            const path = document.createElementNS(svgNamespace, 'path');
+            path.classList.add('grid-energy-path');
+            path.setAttribute('pathLength', '1000');
+            overlay.append(path);
+
+            const energy = { path, timer: null };
+            activePaths.push(energy);
+            animateEnergy(energy, width, height, Math.random() * 5000);
+        }
+    }
+
+    function animateEnergy(energy, width, height, delay) {
+        energy.path.setAttribute('d', createEnergyPath(width, height));
+        energy.path.style.animationName = 'none, none';
+        energy.path.style.animationDuration = `${Math.max(8000, Math.min(18000, energy.path.getTotalLength() * 9))}ms, 2.6s`;
+        energy.path.style.animationDelay = `${delay}ms, ${delay}ms`;
+        void energy.path.getBoundingClientRect();
+        energy.path.style.animationName = 'gridEnergyFlow, gridEnergyGlow';
+
+        energy.path.addEventListener('animationend', () => {
+            energy.timer = setTimeout(() => {
+                animateEnergy(
+                    energy,
+                    Math.max(layer.clientWidth, 1),
+                    Math.max(layer.clientHeight, 1),
+                    Math.random() * 2500
+                );
+            }, 500 + Math.random() * 2500);
+        }, { once: true });
+    }
+
+    new ResizeObserver(renderEnergies).observe(layer);
+}
+
+if (!reducedMotion.matches) {
+    energySections.forEach(addGridEnergy);
+}
