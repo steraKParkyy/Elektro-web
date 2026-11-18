@@ -7,6 +7,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 const sideLinks = document.querySelectorAll('.side-link');
 const desktopNav = document.getElementById('desktopNav');
 const sideNav = document.getElementById('sideNav');
+let previousActiveNavIndex = -1;
 
 function updateActiveNav() {
     const scrollY = window.scrollY;
@@ -15,10 +16,17 @@ function updateActiveNav() {
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) link.classList.add('active');
-            });
+            const activeNavIndex = Array.from(navLinks).findIndex(
+                link => link.getAttribute('href') === `#${sectionId}`
+            );
+            if (activeNavIndex !== -1 && activeNavIndex !== previousActiveNavIndex) {
+                const isReverse = previousActiveNavIndex !== -1 && activeNavIndex < previousActiveNavIndex;
+                navLinks.forEach((link, index) => {
+                    link.classList.toggle('active', index === activeNavIndex);
+                    link.classList.toggle('nav-link--reverse', index === activeNavIndex && isReverse);
+                });
+                previousActiveNavIndex = activeNavIndex;
+            }
             sideLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('data-section') === sectionId) link.classList.add('active');

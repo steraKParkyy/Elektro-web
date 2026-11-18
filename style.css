@@ -127,7 +127,7 @@ img { max-width: 100%; display: block; }
     position: fixed;
     top: 0; left: 0; right: 0;
     height: var(--nav-h);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--yellow);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -149,13 +149,21 @@ img { max-width: 100%; display: block; }
 
 .nav-links {
     display: flex;
-    align-items: center;
+    height: 100%;
+    align-items: stretch;
     gap: 0.25rem;
 }
 
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
 .nav-link {
-    padding: 0.45rem 1rem;
-    border-radius: 8px;
+    padding: 0.45rem calc(1rem - 1px);
+    border: 1px solid transparent;
+    border-bottom: 0;
+    border-radius: 0;
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--gray-light);
@@ -169,16 +177,70 @@ img { max-width: 100%; display: block; }
     background: var(--white-dim);
 }
 
-.nav-link.active::after {
+.nav-link.active {
+    color: var(--yellow-dark);
+    border-color: transparent;
+    background: var(--white-dim);
+}
+
+.nav-link.active::before {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    background: var(--yellow);
-    border-radius: 50%;
+    top: -1px;
+    right: -1px;
+    bottom: calc((100% - var(--nav-h)) / 2 - 0.5px);
+    left: -1px;
+    z-index: 1;
+    background-image:
+        linear-gradient(var(--yellow-dark), var(--yellow-dark)),
+        linear-gradient(var(--yellow-dark), var(--yellow-dark)),
+        linear-gradient(var(--yellow-dark), var(--yellow-dark));
+    background-repeat: no-repeat;
+    background-position: left bottom, left top, right top;
+    background-size: 1px 0, 0 1px, 1px 0;
+    pointer-events: none;
+    animation: navBorderDraw 2s ease-in-out forwards;
+}
+
+.nav-link.active.nav-link--reverse::before {
+    background-position: left top, right top, right bottom;
+    animation-name: navBorderDrawReverse;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: -1px;
+    left: -1px;
+    height: calc((var(--nav-h) - 100%) / 2 + 0.5px);
+    background: transparent;
+    pointer-events: none;
+    z-index: 0;
+    transition: background-color var(--transition);
+}
+
+.nav-link.active::after {
+    border-radius: 0;
+    background: linear-gradient(
+        to bottom,
+        var(--white-dim) 0 calc(100% - 1px),
+        var(--dark) calc(100% - 1px) 100%
+    );
+}
+
+@keyframes navBorderDraw {
+    0% { background-size: 1px 0, 0 1px, 1px 0; }
+    33% { background-size: 1px 100%, 0 1px, 1px 0; }
+    66% { background-size: 1px 100%, 100% 1px, 1px 0; }
+    100% { background-size: 1px 100%, 100% 1px, 1px 100%; }
+}
+
+@keyframes navBorderDrawReverse {
+    0% { background-size: 1px 0, 0 1px, 1px 0; }
+    33% { background-size: 1px 0, 0 1px, 1px 100%; }
+    66% { background-size: 1px 0, 100% 1px, 1px 100%; }
+    100% { background-size: 1px 100%, 100% 1px, 1px 100%; }
 }
 
 .nav-cta {
@@ -385,6 +447,14 @@ img { max-width: 100%; display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .nav-link.active::before {
+        animation: none;
+        background-size: 1px 100%, 100% 1px, 1px 100%;
+    }
+    .nav-link.active.nav-link--reverse::before {
+        animation: none;
+    }
+
     .hero-grid,
     .onas-section::before,
     .eshop-section::before,
