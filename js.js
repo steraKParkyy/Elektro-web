@@ -25,12 +25,12 @@ function updateActiveNav() {
                     link.classList.toggle('active', index === activeNavIndex);
                     link.classList.toggle('nav-link--reverse', index === activeNavIndex && isReverse);
                 });
+                sideLinks.forEach((link, index) => {
+                    link.classList.toggle('active', index === activeNavIndex);
+                    link.classList.toggle('side-link--reverse', index === activeNavIndex && isReverse);
+                });
                 previousActiveNavIndex = activeNavIndex;
             }
-            sideLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-section') === sectionId) link.classList.add('active');
-            });
         }
     });
 }
@@ -74,9 +74,56 @@ const form = document.getElementById('kontaktForm');
 const formSuccess = document.getElementById('formSuccess');
 const workTypeSelect = document.getElementById('typ');
 
-document.querySelectorAll('.sluzba-card[data-work-type]').forEach(card => {
-    card.addEventListener('click', () => {
-        workTypeSelect.value = card.dataset.workType;
+document.querySelectorAll('.sluzba-card a[data-work-type]').forEach(link => {
+    link.addEventListener('click', () => {
+        workTypeSelect.value = link.dataset.workType;
+    });
+});
+
+document.querySelectorAll('.sluzba-partnership-toggle').forEach(button => {
+    const panel = document.getElementById(button.getAttribute('aria-controls'));
+    let panelAnimation;
+
+    button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const startHeight = panel.hidden ? 0 : panel.getBoundingClientRect().height;
+        const startOpacity = panel.hidden ? 0 : Number.parseFloat(getComputedStyle(panel).opacity);
+        const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        panelAnimation?.cancel();
+        button.setAttribute('aria-expanded', String(!isExpanded));
+        panel.hidden = false;
+        panel.style.height = `${startHeight}px`;
+        panel.style.opacity = String(startOpacity);
+
+        const finishAnimation = () => {
+            if (button.getAttribute('aria-expanded') === 'true') {
+                panel.style.height = 'auto';
+                panel.style.opacity = '1';
+                panel.style.overflow = 'visible';
+            } else {
+                panel.hidden = true;
+                panel.style.height = '0px';
+                panel.style.opacity = '0';
+                panel.style.overflow = 'hidden';
+            }
+            panelAnimation = null;
+        };
+
+        if (isReducedMotion) {
+            finishAnimation();
+            return;
+        }
+
+        panel.style.overflow = 'hidden';
+        panelAnimation = panel.animate(
+            [
+                { height: `${startHeight}px`, opacity: startOpacity },
+                { height: `${isExpanded ? 0 : panel.scrollHeight}px`, opacity: isExpanded ? 0 : 1 }
+            ],
+            { duration: 1000, easing: 'ease-in-out' }
+        );
+        panelAnimation.onfinish = finishAnimation;
     });
 });
 
