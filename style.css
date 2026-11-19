@@ -1126,7 +1126,7 @@ img { max-width: 100%; display: block; }
 =========================== */
 .kontakt-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
     gap: 4rem;
     align-items: start;
 }
@@ -1165,7 +1165,7 @@ img { max-width: 100%; display: block; }
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
 }
 
@@ -1173,6 +1173,7 @@ img { max-width: 100%; display: block; }
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    min-width: 0;
 }
 
 .form-group label {
@@ -1195,6 +1196,13 @@ img { max-width: 100%; display: block; }
     font-size: 0.95rem;
     transition: border-color var(--transition);
     outline: none;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    min-width: 0;
 }
 
 .form-group input::placeholder,
@@ -1294,6 +1302,8 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 480px) {
+    .section { padding-left: calc(var(--side-w) + 0.5rem); }
+    .container { padding: 0 0.75rem; }
     .hero-section { padding-left: calc(var(--side-w) + 0.25rem); }
     .hero-content {
         width: 100%;
