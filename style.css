@@ -475,24 +475,24 @@ img { max-width: 100%; display: block; }
 
 .grid-energy-path {
     fill: none;
-    stroke: var(--yellow);
+    stroke: rgba(245,196,0,0.8);
     stroke-width: 2;
     stroke-dasharray: 100 900;
     stroke-linecap: round;
-    filter: blur(0.6px) drop-shadow(0 0 4px rgba(245,196,0,0.65)) drop-shadow(0 0 9px rgba(245,196,0,0.3));
+    filter: blur(1.4px) drop-shadow(0 0 4px rgba(245,196,0,0.32)) drop-shadow(0 0 9px rgba(245,196,0,0.16));
     opacity: 0;
     animation: gridEnergyFlow linear both, gridEnergyGlow 2.6s ease-in-out infinite;
 }
 
 @keyframes gridEnergyFlow {
     0% { stroke-dashoffset: 0; opacity: 0; }
-    4%, 92% { opacity: 0.9; }
+    4%, 92% { opacity: 0.72; }
     100% { stroke-dashoffset: -1000; opacity: 0; }
 }
 
 @keyframes gridEnergyGlow {
-    0%, 100% { filter: blur(0.5px) drop-shadow(0 0 3px rgba(245,196,0,0.55)) drop-shadow(0 0 7px rgba(245,196,0,0.22)); }
-    50% { filter: blur(0.8px) drop-shadow(0 0 6px rgba(245,196,0,0.8)) drop-shadow(0 0 12px rgba(245,196,0,0.38)); }
+    0%, 100% { filter: blur(1.4px) drop-shadow(0 0 3px rgba(245,196,0,0.28)) drop-shadow(0 0 7px rgba(245,196,0,0.12)); }
+    50% { filter: blur(1.8px) drop-shadow(0 0 6px rgba(245,196,0,0.42)) drop-shadow(0 0 12px rgba(245,196,0,0.2)); }
 }
 
 @keyframes gridPulse {
@@ -732,8 +732,9 @@ img { max-width: 100%; display: block; }
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    width: 100%;
-    padding: 0;
+    width: calc(100% + 4rem);
+    margin: -0.5rem -2rem;
+    padding: 0.6rem 2rem;
     border: 0;
     background: transparent;
     color: var(--yellow-dark);
@@ -742,8 +743,10 @@ img { max-width: 100%; display: block; }
     cursor: pointer;
     font-weight: 600;
     pointer-events: auto;
+    transition: color var(--transition);
 }
 
+.sluzba-partnership-toggle:hover { color: var(--yellow); }
 .sluzba-partnership-toggle::after { content: '+'; font-size: 1.25rem; line-height: 1; }
 .sluzba-partnership-toggle[aria-expanded="true"]::after { content: '-'; }
 .sluzba-partnership-toggle:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
