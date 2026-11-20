@@ -118,9 +118,10 @@ img { max-width: 100%; display: block; }
 
 .sluzba-card,
 .eshop-card {
-    background: rgba(22,22,22,0.16);
-    backdrop-filter: blur(8px) saturate(140%);
-    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    /* background: rgba(22,22,22,0.34);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 12px 32px rgba(0,0,0,0.3), 0 0 34px rgba(245,196,0,0.22); */
 }
 
 .desktop-nav {
@@ -657,9 +658,9 @@ img { max-width: 100%; display: block; }
 }
 
 .sluzba-card:hover {
-    border-color: rgba(245,196,0,0.45);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    border-color: rgba(245,196,0,0.55);
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 12px 32px rgba(0,0,0,0.3), 0 0 38px rgba(245,196,0,0.26);
 }
 
 .sluzba-card.featured {
@@ -1091,14 +1092,12 @@ img { max-width: 100%; display: block; }
     border: 1px solid var(--yellow-border);
     border-radius: 8px;
     transition: border-color var(--transition), transform var(--transition);
-    backdrop-filter: blur(2px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 8px 24px rgba(0,0,0,0.18);
 }
 
 .eshop-card:hover {
-    border-color: rgba(245,196,0,0.45);
-    transform: translateY(-4px);
+    border-color: rgba(245,196,0,0.55);
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 12px 32px rgba(0,0,0,0.3), 0 0 38px rgba(245,196,0,0.26);
 }
 
 .eshop-icon {
