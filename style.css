@@ -148,6 +148,13 @@ img { max-width: 100%; display: block; }
     color: var(--yellow);
 }
 
+.nav-logo img {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.1em;
+}
+
 .nav-links {
     display: flex;
     height: 100%;
@@ -731,7 +738,7 @@ img { max-width: 100%; display: block; }
 .sluzba-partnership-toggle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
     width: calc(100% + 4rem);
     margin: -0.5rem -2rem;
@@ -745,6 +752,13 @@ img { max-width: 100%; display: block; }
     font-weight: 600;
     pointer-events: auto;
     transition: color var(--transition);
+}
+
+.sluzba-partnership-logo {
+    width: auto;
+    height: 24px;
+    max-width: 110px;
+    object-fit: contain;
 }
 
 .sluzba-partnership-toggle:hover { color: var(--yellow); }
