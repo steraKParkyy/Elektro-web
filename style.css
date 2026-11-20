@@ -525,7 +525,8 @@ img { max-width: 100%; display: block; }
     }
 
     .hero-grid,
-    .onas-section::before,
+    .galeria-section::before,
+    .kontakt-section::before,
     .eshop-section::before,
     .grid-energy-path {
         animation: none;
@@ -952,12 +953,14 @@ img { max-width: 100%; display: block; }
 /* ===========================
    O NAS
 =========================== */
-.onas-section {
+.galeria-section,
+.kontakt-section {
     position: relative;
     isolation: isolate;
 }
 
-.onas-section::before {
+.galeria-section::before,
+.kontakt-section::before {
     content: '';
     position: absolute;
     inset: 0;

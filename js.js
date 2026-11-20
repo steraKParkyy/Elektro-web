@@ -259,7 +259,7 @@ document.querySelectorAll('.sluzba-card, .eshop-card, .galeria-item, .hodnota, .
 
 const gridSpacing = 60;
 const energyCount = 5;
-const energySections = document.querySelectorAll('.hero-grid, .onas-section, .eshop-section');
+const energySections = document.querySelectorAll('.hero-grid, .galeria-section, .kontakt-section');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const svgNamespace = 'http://www.w3.org/2000/svg';
 
