@@ -1013,6 +1013,7 @@ img { max-width: 100%; display: block; }
     isolation: isolate;
 }
 
+.galeria-section > .container,
 .kontakt-section > .container {
     position: relative;
     z-index: 1;
